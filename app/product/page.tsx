@@ -13,21 +13,23 @@ export default function ProducPage(props) {
     if (!product?.name) {
         router.push('/')
     }
-    const setCart = useCart()
+    const addItemToCart = useCart(state => state.addItemToCart)    
 
     const AddToCart = () => {
-        const newItem ={
-            quantity:1,
-            price_id: price_id
-        }
-        setCart
+        const newItem = {
+            quantity: 1,
+            price_id: price_id,
+            name: name,
+            cost: cost
+        }        
+        addItemToCart(newItem)
     }
 
     return (
         <div className="flex flex-col">
             <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1000px] mx-auto">
                 <div className="p-2 md:shadow">
-                    <img src={producInfo.images[0]} alt={name} className="w-full h-full object-cover" />
+                    <img src={producInfo?.images[0]} alt={name} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col gap-2">
                     <div className="flex md:flex-col items-center md:items-start justify-between text-xl sm:text-lg gap-2">

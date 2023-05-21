@@ -31,6 +31,9 @@ export default function RootLayout({
           </Link>
           <i class="fa-brands fa-square-facebook"></i>
         </footer>
+        <div id="portal">
+
+        </div>
       </body>
     </html>
   )
